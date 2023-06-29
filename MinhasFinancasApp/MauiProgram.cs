@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using LiteDB;
+using Microsoft.Extensions.Logging;
 
 namespace MinhasFinancasApp;
 
@@ -20,5 +21,12 @@ public static class MauiProgram
 #endif
 
 		return builder.Build();
+	}
+
+	public static MauiAppBuilder RegisterDatabaseRepositories(this MauiAppBuilder mauiAppBuilder)
+	{
+		MauiAppBuilder.Services.AddSingleton<LiteDatabase>(
+			);
+			retturn mauiAppBuider;
 	}
 }
