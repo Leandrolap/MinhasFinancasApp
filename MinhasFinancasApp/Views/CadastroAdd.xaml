@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MinhasFinancasApp.Views.CadastroAdd"
+             Title="CadastroAdd">
+    <VerticalStackLayout Padding="15">
+        <Border Margin="15"
+                Padding="15"
+                BackgroundColor="Black"
+                Stroke="Transparent"
+                StrokeShape="RoundRectangle 30">
+            <Grid ColumnDefinitions="*,30" RowDefinitions="Auto">
+                <Label Grid.Row="0"
+                       Grid.Column="0"
+                       HorizontalOptions="Center"
+                       Text="NOVO"
+                       TextColor="White"/>
+
+                <Label Grid.Row="0"
+                       Grid.Column="1"
+                       HorizontalOptions="Center"
+                       TextColor="White"/>
+            </Grid>
+        </Border>
+
+        <Grid ColumnDefinitions="*,*" Margin="30,0">
+            <RadioButton IsChecked="True" 
+                         Content="Receita"/>
+            <RadioButton Content="Despesa"
+                         Grid.Column="1"
+                         HorizontalOptions="End"/>
+        </Grid>
+
+        <Entry Placeholder="Nome" Margin="15,0"/>
+        <DatePicker Margin="15,0"/>
+        <Entry Placeholder="Valor"
+               Margin="15,0"/>
+
+        <Button Text="Salvar"
+                Margin="15,0"
+                HorizontalOptions="Center"/>
+    </VerticalStackLayout>
+</ContentPage>

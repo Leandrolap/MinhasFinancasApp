@@ -12,9 +12,9 @@ namespace MinhasFinancasApp.Repositories
     {
         private readonly LiteDatabase _database;
         private readonly string collectionName = "transacoes";
-        public TransicaoRepositorio()
+        public TransicaoRepositorio(LiteDatabase database)
         {
-            _database = new LiteDatabase("Filename=C:/users/AppData/database.db;Connection=Shared");
+            _database = database;
         }
 
         public List<Transacao> GetAll()

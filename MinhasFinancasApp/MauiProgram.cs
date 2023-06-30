@@ -1,5 +1,7 @@
 ﻿using LiteDB;
 using Microsoft.Extensions.Logging;
+using MinhasFinancasApp.Models;
+using MinhasFinancasApp.Repositories;
 
 namespace MinhasFinancasApp;
 
@@ -25,8 +27,12 @@ public static class MauiProgram
 
 	public static MauiAppBuilder RegisterDatabaseRepositories(this MauiAppBuilder mauiAppBuilder)
 	{
-		MauiAppBuilder.Services.AddSingleton<LiteDatabase>(
-			);
-			retturn mauiAppBuider;
+        mauiAppBuilder.Services.AddSingleton<LiteDatabase>(
+			options =>
+			{
+				return new LiteDatabase($"Filename={AppSettings.DatabasePath};Connection=Shared");
+			});
+		mauiAppBuilder.Services.AddTransient<ITransicaoRepositorio, TransicaoRepositorio>();
+			return mauiAppBuilder;
 	}
 }

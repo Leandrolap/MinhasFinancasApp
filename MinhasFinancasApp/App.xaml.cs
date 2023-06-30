@@ -1,4 +1,6 @@
-﻿namespace MinhasFinancasApp;
+﻿using MinhasFinancasApp.Views;
+
+namespace MinhasFinancasApp;
 
 public partial class App : Application
 {
@@ -6,6 +8,6 @@ public partial class App : Application
 	{
 		InitializeComponent();
 
-		MainPage = new AppShell();
+		MainPage = new TelaInicial();
 	}
 }
