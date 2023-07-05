@@ -4,10 +4,10 @@ namespace MinhasFinancasApp;
 
 public partial class App : Application
 {
-	public App()
+	public App(TelaInicial telainicial)
 	{
 		InitializeComponent();
 
-		MainPage = new TelaInicial();
+		MainPage = new NavigationPage(telainicial);
 	}
 }

@@ -33,7 +33,7 @@
 	<ItemGroup>
 		<!-- App Icon -->
 		<MauiIcon Include="Resources\AppIcon\carteiraincon.svg" ForegroundFile="Resources\AppIcon\carteiraincon.svg" Color="#FF721F1F" />
-		<MauiSplashScreen Include="Resources\Splash\carteirasplash.svg" />
+	
 
 		<!-- Splash Screen -->
 		<MauiSplashScreen Include="Resources\Splash\carteirasplash.svg" Color="#FF721F1F" BaseSize="128,128" />
@@ -51,10 +51,12 @@
 
 	<ItemGroup>
 	  <None Remove="Resources\AppIcon\carteiraincon.svg" />
+	  <None Remove="Resources\Raw\close.svg" />
 	  <None Remove="Resources\Splash\carteirasplash.svg" />
 	</ItemGroup>
 
 	<ItemGroup>
+		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.0" />
 		<PackageReference Include="LiteDB" Version="5.0.16" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
 	</ItemGroup>

@@ -4,9 +4,47 @@
              x:Class="MinhasFinancasApp.Views.TelaEdicao"
              Title="TelaEdicao">
     <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+        <Border Margin="15"
+                Padding="15"
+                BackgroundColor="Black"
+                Stroke="Transparent"
+                StrokeShape="RoundRectangle 30">
+            <Grid ColumnDefinitions="*,30" RowDefinitions="Auto">
+                <Label Grid.Row="0"
+                       Grid.Column="0"
+                       HorizontalOptions="Center"
+                       Text="NOVO"
+                       TextColor="White"
+                       VerticalOptions="Center"/>
+
+                <Image Grid.Row="0"
+                       Grid.Column="1"
+                       HorizontalOptions="Center"
+                       Source="close.png"
+                       WidthRequest="17">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnTappedImage"/>
+                    </Image.GestureRecognizers>
+                </Image>
+            </Grid>
+        </Border>
+
+        <Grid Margin="30,0" ColumnDefinitions="*,*">
+            <RadioButton x:Name="RadioIncome" Content="Receita" IsChecked="True"/>
+            <RadioButton x:Name="RadioExpense" Grid.Column="1" Content="Despeza" HorizontalOptions="End"/>
+        </Grid>
+
+        <Entry x:Name="EntryName" Margin="15,0" Placeholder="Nome"/>
+        <DatePicker x:Name="DatePickerDate" Margin="15,0"/>
+        <Entry x:Name="EntryValue" Margin="15,0" Placeholder="Valor"/>
+
+        <Label TextColor="Red" 
+               x:Name="LabelErro"
+               IsVisible="False"
+               Margin="30,0"/>
+
+        <Button Margin="15,0"
+                HorizontalOptions="Center"
+                Clicked="OnClickedSalvar"/>
     </VerticalStackLayout>
 </ContentPage>

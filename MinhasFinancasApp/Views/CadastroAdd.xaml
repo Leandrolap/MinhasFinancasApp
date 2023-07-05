@@ -9,35 +9,57 @@
                 BackgroundColor="Black"
                 Stroke="Transparent"
                 StrokeShape="RoundRectangle 30">
+            
             <Grid ColumnDefinitions="*,30" RowDefinitions="Auto">
                 <Label Grid.Row="0"
                        Grid.Column="0"
                        HorizontalOptions="Center"
                        Text="NOVO"
-                       TextColor="White"/>
+                       TextColor="White"
+                       VerticalOptions="Center"/>
 
-                <Label Grid.Row="0"
+                <Image Grid.Row="0"
                        Grid.Column="1"
                        HorizontalOptions="Center"
-                       TextColor="White"/>
+                       Source="close.png"
+                       WidthRequest="17"
+                       >
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnTappedImage"/>
+                    </Image.GestureRecognizers>
+                </Image>
             </Grid>
         </Border>
 
+        <Label TextColor="Red" 
+               x:Name="LabelErro"
+               IsVisible="False"
+               Margin="30,0"/>
+
         <Grid ColumnDefinitions="*,*" Margin="30,0">
             <RadioButton IsChecked="True" 
-                         Content="Receita"/>
+                         Content="Receita"
+                         x:Name="RadioIncome"/>
             <RadioButton Content="Despesa"
                          Grid.Column="1"
-                         HorizontalOptions="End"/>
+                         HorizontalOptions="End"
+                         x:Name="RadioExpense"/>
         </Grid>
 
-        <Entry Placeholder="Nome" Margin="15,0"/>
-        <DatePicker Margin="15,0"/>
+        <Entry Placeholder="Nome" 
+               Margin="15,0"
+               x:Name="EntryName"/>
+        
+        <DatePicker Margin="15,0"
+                    x:Name="DatePickerDate"/>
+        
         <Entry Placeholder="Valor"
-               Margin="15,0"/>
+               Margin="15,0"
+               x:Name="EntryValue"/>
 
         <Button Text="Salvar"
                 Margin="15,0"
-                HorizontalOptions="Center"/>
+                HorizontalOptions="Center"
+                Clicked="OnClickedSalvar"/>
     </VerticalStackLayout>
 </ContentPage>
