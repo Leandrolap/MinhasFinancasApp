@@ -8,6 +8,7 @@
 
     <ContentPage.Resources>
         <converters:TransationValueConverter x:Key="TransationValueConverter"/>
+        <converters:TransactionNameConverter x:Key="TransactionNameConverter"/>
         <converters:TransationValueColor x:Key="TransationValueColor"/>
     </ContentPage.Resources>
 
@@ -16,26 +17,45 @@
             <CollectionView x:Name="CollectionTrasacao">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <Grid Padding="15" ColumnDefinitions="50,*,Auto">
-                            <Grid.GestureRecognizers>
-                                <TapGestureRecognizer CommandParameter="{Binding .}" Tapped="TapGestureEdit"/>
-                            </Grid.GestureRecognizers>
-                            <Label Text="S"
-                               VerticalOptions="End"
-                               HorizontalOptions="Center"
-                               FontSize="20"
-                               FontAttributes="Bold"/>
+                        <SwipeView>
+                            <SwipeView.LeftItems>
+                                <SwipeItems Mode="Execute">
+                                    <SwipeItem Text="Excluir"
+                                               IconImageSource="lixeira.png"
+                                               BackgroundColor="LightPink"
+                                               Invoked="OnDeleteSwipeItemInvoked"
+                                               CommandParameter="{Binding .}"/>
+                                    </SwipeItems>
+                            </SwipeView.LeftItems>
+                            <Grid Padding="15" ColumnDefinitions="50,*,Auto">
+                                <Grid.GestureRecognizers>
+                                    <TapGestureRecognizer CommandParameter="{Binding .}" Tapped="TapGestureEdit"/>
+                                </Grid.GestureRecognizers>
 
-                            <VerticalStackLayout Grid.Column="1">
-                                <Label Text="{Binding Name}" TextColor="Black"/>
-                                <Label Text="{Binding Date, StringFormat='{0:dd/MM/yyyy}'}" TextColor="Gray"/>
-                            </VerticalStackLayout>
+                                <Border HeightRequest="40"
+                                        WidthRequest="40"
+                                        Stroke="Transparent"
+                                        StrokeShape="RoundRectangle 20"
+                                        BackgroundColor="Black">
+                                    <Label Text="{Binding Name, Converter={StaticResource TransactionNameConverter}}"
+                                           VerticalOptions="Center"
+                                           HorizontalOptions="CenterAndExpand"
+                                           FontSize="20"
+                                           FontAttributes="Bold"
+                                           TextColor="White"/>
+                                </Border>
 
-                            <Label Text="{Binding ., Converter={StaticResource TransationValueConverter}}" 
+                                <VerticalStackLayout Grid.Column="1">
+                                    <Label Text="{Binding Name}" TextColor="Black"/>
+                                    <Label Text="{Binding Date, StringFormat='{0:dd/MM/yyyy}'}" TextColor="Gray"/>
+                                </VerticalStackLayout>
+
+                                <Label Text="{Binding ., Converter={StaticResource TransationValueConverter}}" 
                                    TextColor="{Binding ., Converter={StaticResource TransationValueColor}}"
                                Grid.Column="2"
                                VerticalOptions="Center"/>
-                        </Grid>
+                            </Grid>
+                        </SwipeView>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
@@ -66,7 +86,8 @@
                         Padding="0"
                         CornerRadius="50"
                         WidthRequest="70"
-                        VerticalOptions="CenterAndExpand"/>
+                        VerticalOptions="CenterAndExpand"
+                        TextColor="Black"/>
 
                 <Label Text="Receitas"
                        Grid.Row="3"

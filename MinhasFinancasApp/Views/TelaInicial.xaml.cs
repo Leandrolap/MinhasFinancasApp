@@ -53,4 +53,13 @@ public partial class TelaInicial : ContentPage
         editt.SetTransacacaoEdit(transacao);
         Navigation.PushModalAsync(editt);
     }
+
+    private void OnDeleteSwipeItemInvoked(object sender, EventArgs e)
+    {
+        var grid = (SwipeItem)sender;
+        Transacao transacao = (Transacao)grid.CommandParameter;
+        _repositorio.Delete(transacao);
+
+        Reload();
+    }
 }

@@ -3,63 +3,94 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MinhasFinancasApp.Views.CadastroAdd"
              Title="CadastroAdd">
-    <VerticalStackLayout Padding="15">
-        <Border Margin="15"
-                Padding="15"
-                BackgroundColor="Black"
-                Stroke="Transparent"
-                StrokeShape="RoundRectangle 30">
+
+    <Grid>
+        <VerticalStackLayout Padding="15" Spacing="20">
+            <Border Margin="15"
+                    Padding="15"
+                    BackgroundColor="Black"
+                    Stroke="Transparent"
+                    StrokeShape="RoundRectangle 30">
+
+                <Grid ColumnDefinitions="*,Auto" RowDefinitions="Auto">
+                    <Label Grid.Row="0"
+                           Grid.Column="0"
+                           HorizontalOptions="CenterAndExpand"
+                           Text="NOVA TRANSAÇÃO"
+                           TextColor="White"
+                           VerticalOptions="Center"/>
+
+                    <Image Grid.Row="0"
+                           Grid.Column="1"
+                           HorizontalOptions="Center"
+                           Source="fechar.png"
+                           WidthRequest="17">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnTappedImage"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                </Grid>
+            </Border>
             
-            <Grid ColumnDefinitions="*,30" RowDefinitions="Auto">
-                <Label Grid.Row="0"
-                       Grid.Column="0"
-                       HorizontalOptions="Center"
-                       Text="NOVO"
-                       TextColor="White"
-                       VerticalOptions="Center"/>
-
-                <Image Grid.Row="0"
-                       Grid.Column="1"
-                       HorizontalOptions="Center"
-                       Source="close.png"
-                       WidthRequest="17"
-                       >
-                    <Image.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="OnTappedImage"/>
-                    </Image.GestureRecognizers>
-                </Image>
+            <Grid ColumnDefinitions="*,*" Margin="30,0">
+                <RadioButton IsChecked="True" 
+                             Content="Receita"
+                             x:Name="RadioIncome"
+                             TextColor="White"/>
+                
+                <RadioButton Content="Despesa"
+                             Grid.Column="1"
+                             HorizontalOptions="End"
+                             x:Name="RadioExpense"
+                             TextColor="White"/>
             </Grid>
-        </Border>
 
-        <Label TextColor="Red" 
-               x:Name="LabelErro"
-               IsVisible="False"
-               Margin="30,0"/>
+            <Frame CornerRadius="50" 
+                   BackgroundColor="White"
+                   BorderColor="Transparent"
+                   HeightRequest="50"
+                   Padding="0">
 
-        <Grid ColumnDefinitions="*,*" Margin="30,0">
-            <RadioButton IsChecked="True" 
-                         Content="Receita"
-                         x:Name="RadioIncome"/>
-            <RadioButton Content="Despesa"
-                         Grid.Column="1"
-                         HorizontalOptions="End"
-                         x:Name="RadioExpense"/>
-        </Grid>
+                <Entry Placeholder="Nome" 
+                       Margin="15,0"
+                       x:Name="EntryName"
+                       PlaceholderColor="Gray"
+                       TextColor="Black"
+                       VerticalOptions="Center"/>
+            </Frame>
 
-        <Entry Placeholder="Nome" 
-               Margin="15,0"
-               x:Name="EntryName"/>
-        
-        <DatePicker Margin="15,0"
-                    x:Name="DatePickerDate"/>
-        
-        <Entry Placeholder="Valor"
-               Margin="15,0"
-               x:Name="EntryValue"/>
+            <Frame CornerRadius="50" 
+                   BackgroundColor="White"
+                   BorderColor="Transparent"
+                   HeightRequest="50"
+                   Padding="0">
+
+                <Entry Placeholder="Valor"
+                       Margin="15,0"
+                       x:Name="EntryValue"
+                       PlaceholderColor="Gray"
+                       VerticalOptions="Center"
+                       TextColor="Black"
+                       Keyboard="Numeric"/>
+            </Frame>
+
+            <DatePicker Margin="15,0"
+                        x:Name="DatePickerDate"
+                        TextColor="White"
+                        HorizontalOptions="Center"
+                        FontSize="17"/>
+
+            <Label TextColor="#FFEA1414" 
+                   x:Name="LabelErro"
+                   IsVisible="False"
+                   Margin="30,30"/>
+        </VerticalStackLayout>
 
         <Button Text="Salvar"
-                Margin="15,0"
-                HorizontalOptions="Center"
-                Clicked="OnClickedSalvar"/>
-    </VerticalStackLayout>
+                Margin="20"
+                BackgroundColor="Black"
+                Clicked="OnClickedSalvar"
+                VerticalOptions="End"
+                TextColor="White"/>
+    </Grid>
 </ContentPage>

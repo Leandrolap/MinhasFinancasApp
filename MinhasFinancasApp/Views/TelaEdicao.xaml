@@ -20,7 +20,7 @@
                 <Image Grid.Row="0"
                        Grid.Column="1"
                        HorizontalOptions="Center"
-                       Source="close.png"
+                       Source="fechar.png"
                        WidthRequest="17">
                     <Image.GestureRecognizers>
                         <TapGestureRecognizer Tapped="OnTappedImage"/>

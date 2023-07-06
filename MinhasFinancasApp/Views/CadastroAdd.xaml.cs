@@ -11,6 +11,7 @@ public partial class CadastroAdd : ContentPage
 	public CadastroAdd(ITransicaoRepositorio transation)
 	{
 		InitializeComponent();
+        
         _transation = transation;
 	}
 
@@ -53,7 +54,7 @@ public partial class CadastroAdd : ContentPage
 
         if (string.IsNullOrEmpty(EntryName.Text) || string.IsNullOrWhiteSpace(EntryName.Text)) 
         {
-            sb.Append("O campo 'Nome' deve ser preenchido!");
+            sb.Append("O campo 'Nome' deve ser preenchido!" + "\r\n");
             valid = false;
         }
         if (string.IsNullOrEmpty(EntryValue.Text) || string.IsNullOrWhiteSpace(EntryValue.Text))
@@ -69,8 +70,8 @@ public partial class CadastroAdd : ContentPage
         }
         if (valid == false)
         {
-            LabelErro.Text = sb.ToString(); 
             LabelErro.IsVisible = true;
+            LabelErro.Text = sb.ToString(); 
         }
 
         return valid;
