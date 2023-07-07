@@ -12,73 +12,82 @@
         <converters:TransationValueColor x:Key="TransationValueColor"/>
     </ContentPage.Resources>
 
-    <Grid>
-        <VerticalStackLayout>
-            <CollectionView x:Name="CollectionTrasacao">
-                <CollectionView.ItemTemplate>
-                    <DataTemplate>
-                        <SwipeView>
-                            <SwipeView.LeftItems>
-                                <SwipeItems Mode="Execute">
-                                    <SwipeItem Text="Excluir"
+    <Grid RowDefinitions="*,Auto">
+        <CollectionView x:Name="CollectionTrasacao" Grid.Row="0">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <SwipeView>
+                        <SwipeView.LeftItems>
+                            <SwipeItems>
+                                <SwipeItem Text="Excluir"
                                                IconImageSource="lixeira.png"
                                                BackgroundColor="LightPink"
                                                Invoked="OnDeleteSwipeItemInvoked"
                                                CommandParameter="{Binding .}"/>
-                                    </SwipeItems>
-                            </SwipeView.LeftItems>
-                            <Grid Padding="15" ColumnDefinitions="50,*,Auto">
-                                <Grid.GestureRecognizers>
-                                    <TapGestureRecognizer CommandParameter="{Binding .}" Tapped="TapGestureEdit"/>
-                                </Grid.GestureRecognizers>
+                            </SwipeItems>
+                        </SwipeView.LeftItems>
+                        <Grid Padding="15" ColumnDefinitions="50,*,Auto">
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer CommandParameter="{Binding .}" Tapped="TapGestureEdit"/>
+                            </Grid.GestureRecognizers>
 
-                                <Border HeightRequest="40"
-                                        WidthRequest="40"
+                            <Border HeightRequest="50"
+                                        WidthRequest="50"
                                         Stroke="Transparent"
-                                        StrokeShape="RoundRectangle 20"
-                                        BackgroundColor="Black">
-                                    <Label Text="{Binding Name, Converter={StaticResource TransactionNameConverter}}"
-                                           VerticalOptions="Center"
-                                           HorizontalOptions="CenterAndExpand"
-                                           FontSize="20"
-                                           FontAttributes="Bold"
-                                           TextColor="White"/>
-                                </Border>
+                                        StrokeShape="RoundRectangle 23"
+                                        BackgroundColor="Black"
+                                        Padding="0"
+                                        VerticalOptions="End">
 
-                                <VerticalStackLayout Grid.Column="1">
-                                    <Label Text="{Binding Name}" TextColor="Black"/>
-                                    <Label Text="{Binding Date, StringFormat='{0:dd/MM/yyyy}'}" TextColor="Gray"/>
-                                </VerticalStackLayout>
+                                <Label Text="{Binding Name, Converter={StaticResource TransactionNameConverter}}"
+                                       HorizontalOptions="Center"
+                                       VerticalOptions="Center"
+                                       FontSize="20"
+                                       FontAttributes="Bold"
+                                       TextColor="White"
+                                       Padding="5"/>
+                            </Border>
+
+                            <VerticalStackLayout Grid.Column="1" Spacing="5" Margin="10,0">
+                                <Label Text="{Binding Name}" 
+                                           TextColor="Black"
+                                           FontAttributes="Bold"
+                                           FontSize="18"/>
 
                                 <Label Text="{Binding ., Converter={StaticResource TransationValueConverter}}" 
-                                   TextColor="{Binding ., Converter={StaticResource TransationValueColor}}"
-                               Grid.Column="2"
-                               VerticalOptions="Center"/>
-                            </Grid>
-                        </SwipeView>
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
-        </VerticalStackLayout>
+                                           TextColor="{Binding ., Converter={StaticResource TransationValueColor}}"
+                                           FontSize="20"/>
+                            </VerticalStackLayout>
 
-        <Border BackgroundColor="Black"
+                            <Label Grid.Column="2"
+                                       VerticalOptions="End"
+                                       Text="{Binding Date, StringFormat='{0:dd/MM/yyyy}'}"
+                                       TextColor="White"/>
+                        </Grid>
+                    </SwipeView>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        
+        <!--Popup de valores-->
+    <Border BackgroundColor="Black"
                 Stroke="Transparent"
                 Padding="20"
                 StrokeShape="RoundRectangle 30"
                 AbsoluteLayout.LayoutBounds="0.5,1,100,25"
-                VerticalOptions="End">
+            Grid.Row="1">
 
-            <Grid ColumnDefinitions="*,80" RowDefinitions="Auto, Auto, 30, Auto, Auto">
-                <Label Text="Saldo"
+        <Grid ColumnDefinitions="*,80" RowDefinitions="Auto, Auto, 30, Auto, Auto" Padding="10">
+            <Label Text="Saldo"
                        TextColor="White"
                        FontSize="18"/>
 
-                <Label Grid.Row="1"
+            <Label Grid.Row="1"
                        TextColor="White"
-                       FontSize="36"
+                       FontSize="27"
                        x:Name="LblSaldo"/>
 
-                <Button Text="+"
+            <Button Text="+"
                         Clicked="OnclickAdd"
                         Grid.Column="1"
                         Grid.RowSpan="2"
@@ -87,31 +96,33 @@
                         CornerRadius="50"
                         WidthRequest="70"
                         VerticalOptions="CenterAndExpand"
-                        TextColor="Black"/>
+                        TextColor="Black"
+                        BackgroundColor="White"/>
 
-                <Label Text="Receitas"
+            <Label Text="Receitas"
                        Grid.Row="3"
                        TextColor="White"
-                       FontSize="8"/>
+                       FontSize="15"/>
 
-                <Label Grid.Row="4"
+            <Label Grid.Row="4"
                        TextColor="White"
                        FontSize="12"
                        x:Name="LblReceitas"/>
 
-                <Label Text="Despesas" 
+            <Label Text="Despesas" 
                        Grid.Row="3"
                        Grid.Column="1"
                        TextColor="White"
-                       FontSize="8"/>
+                       FontSize="15"/>
 
-                <Label Grid.Row="4"
+            <Label Grid.Row="4"
                        Grid.Column="1"
                        TextColor="White"
                        FontSize="12"
                        x:Name="LblDespesas"/>
-            </Grid>
-        </Border>
+        </Grid>
+    </Border>
+    
     </Grid>
-   
+    
 </ContentPage>

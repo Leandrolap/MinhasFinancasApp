@@ -45,28 +45,24 @@
                              TextColor="White"/>
             </Grid>
 
-            <Frame CornerRadius="50" 
+            <Frame CornerRadius="8"
                    BackgroundColor="White"
                    BorderColor="Transparent"
-                   HeightRequest="50"
-                   Padding="0">
+                   Padding="1">
 
                 <Entry Placeholder="Nome" 
-                       Margin="15,0"
                        x:Name="EntryName"
                        PlaceholderColor="Gray"
                        TextColor="Black"
                        VerticalOptions="Center"/>
             </Frame>
 
-            <Frame CornerRadius="50" 
+            <Frame CornerRadius="8" 
                    BackgroundColor="White"
                    BorderColor="Transparent"
-                   HeightRequest="50"
-                   Padding="0">
+                   Padding="1">
 
                 <Entry Placeholder="Valor"
-                       Margin="15,0"
                        x:Name="EntryValue"
                        PlaceholderColor="Gray"
                        VerticalOptions="Center"
@@ -74,19 +70,29 @@
                        Keyboard="Numeric"/>
             </Frame>
 
-            <DatePicker Margin="15,0"
-                        x:Name="DatePickerDate"
-                        TextColor="White"
-                        HorizontalOptions="Center"
-                        FontSize="17"/>
-
+            <Frame HorizontalOptions="Center">
+                <StackLayout>
+                    <Label Text="Selecione a data"
+                           HorizontalOptions="Center"
+                           TextColor="Black"
+                           FontSize="12"/>
+                    
+                    <DatePicker Margin="15,0"
+                                x:Name="DatePickerDate"
+                                TextColor="Black"
+                                HorizontalOptions="Center"
+                                FontSize="17"
+                                Format="dd/MM/yyyy"/>
+                </StackLayout>
+            </Frame>
+            
             <Label TextColor="#FFEA1414" 
                    x:Name="LabelErro"
                    IsVisible="False"
                    Margin="30,30"/>
         </VerticalStackLayout>
 
-        <Button Text="Salvar"
+        <Button Text="SALVAR"
                 Margin="20"
                 BackgroundColor="Black"
                 Clicked="OnClickedSalvar"

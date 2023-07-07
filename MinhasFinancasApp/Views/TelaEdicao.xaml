@@ -3,48 +3,107 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MinhasFinancasApp.Views.TelaEdicao"
              Title="TelaEdicao">
-    <VerticalStackLayout>
-        <Border Margin="15"
-                Padding="15"
-                BackgroundColor="Black"
-                Stroke="Transparent"
-                StrokeShape="RoundRectangle 30">
-            <Grid ColumnDefinitions="*,30" RowDefinitions="Auto">
-                <Label Grid.Row="0"
-                       Grid.Column="0"
-                       HorizontalOptions="Center"
-                       Text="NOVO"
-                       TextColor="White"
-                       VerticalOptions="Center"/>
 
-                <Image Grid.Row="0"
-                       Grid.Column="1"
-                       HorizontalOptions="Center"
-                       Source="fechar.png"
-                       WidthRequest="17">
-                    <Image.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="OnTappedImage"/>
-                    </Image.GestureRecognizers>
-                </Image>
+    <Grid>
+        <VerticalStackLayout>
+            <Border Margin="15"
+                    Padding="15"
+                    BackgroundColor="Black"
+                    Stroke="Transparent"
+                    StrokeShape="RoundRectangle 30">
+
+                <Grid ColumnDefinitions="*,30" RowDefinitions="Auto">
+                    <Label Grid.Row="0"
+                           Grid.Column="0"
+                           HorizontalOptions="Center"
+                           x:Name="lBLtitulo"
+                           TextColor="White"
+                           VerticalOptions="Center"/>
+
+                    <Image Grid.Row="0"
+                           Grid.Column="1"
+                           HorizontalOptions="Center"
+                           Source="fechar.png"
+                           WidthRequest="17">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnTappedImage"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                </Grid>
+            </Border>
+
+            <Grid Margin="30,0" ColumnDefinitions="*,*">
+                <RadioButton x:Name="RadioIncome" 
+                             Content="Receita" 
+                             IsChecked="True"
+                             TextColor="White"/>
+
+                <RadioButton x:Name="RadioExpense" 
+                             Grid.Column="1" 
+                             Content="Despeza" 
+                             HorizontalOptions="End"
+                             TextColor="White"/>
             </Grid>
-        </Border>
 
-        <Grid Margin="30,0" ColumnDefinitions="*,*">
-            <RadioButton x:Name="RadioIncome" Content="Receita" IsChecked="True"/>
-            <RadioButton x:Name="RadioExpense" Grid.Column="1" Content="Despeza" HorizontalOptions="End"/>
-        </Grid>
+            <Frame CornerRadius="8"
+                   BackgroundColor="White"
+                   BorderColor="Transparent"
+                   Padding="1"
+                   Margin="15,20">
 
-        <Entry x:Name="EntryName" Margin="15,0" Placeholder="Nome"/>
-        <DatePicker x:Name="DatePickerDate" Margin="15,0"/>
-        <Entry x:Name="EntryValue" Margin="15,0" Placeholder="Valor"/>
+                <Entry x:Name="EntryName"
+                       TextColor="Black"
+                       VerticalOptions="Center"/>
+            </Frame>
 
-        <Label TextColor="Red" 
-               x:Name="LabelErro"
-               IsVisible="False"
-               Margin="30,0"/>
+            <Frame CornerRadius="8"
+                   BackgroundColor="White"
+                   BorderColor="Transparent"
+                   Padding="1"
+                   Margin="15,20">
 
-        <Button Margin="15,0"
-                HorizontalOptions="Center"
-                Clicked="OnClickedSalvar"/>
-    </VerticalStackLayout>
+                <Entry x:Name="EntryValue"
+                       TextColor="Black"
+                       VerticalOptions="Center"
+                       Keyboard="Numeric"/>
+            </Frame>
+
+            <Frame HorizontalOptions="Center">
+                <StackLayout>
+                    <Label Text="Selecione a data"
+                           HorizontalOptions="Center"
+                           TextColor="Black"
+                           FontSize="12"/>
+
+                    <DatePicker Margin="15,0"
+                                x:Name="DatePickerDate"
+                                TextColor="Black"
+                                HorizontalOptions="Center"
+                                FontSize="17"
+                                Format="dd/MM/yyyy"/>
+                </StackLayout>
+            </Frame>
+
+            <Label TextColor="Red" 
+                   x:Name="LabelErro"
+                   IsVisible="False"
+                   Margin="30,0"/>
+        </VerticalStackLayout>
+
+        <ImageButton HorizontalOptions="End"
+                     Source="lixeirabranca.png"
+                     HeightRequest="50"
+                     Margin="0,0,0,70"
+                     BackgroundColor="Transparent"
+                     BorderColor="White"
+                     VerticalOptions="End"
+                     Clicked="OnClickExcluir"/>
+        
+        <Button Margin="20"
+                Text="ALTERAR DADOS"
+                BackgroundColor="Black"
+                TextColor="White"
+                Clicked="OnClickedSalvar"
+                VerticalOptions="End"/>
+    </Grid>
 </ContentPage>

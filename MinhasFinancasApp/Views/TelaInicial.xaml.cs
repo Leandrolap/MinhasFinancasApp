@@ -54,7 +54,7 @@ public partial class TelaInicial : ContentPage
         Navigation.PushModalAsync(editt);
     }
 
-    private void OnDeleteSwipeItemInvoked(object sender, EventArgs e)
+    public void OnDeleteSwipeItemInvoked(object sender, EventArgs e)
     {
         var grid = (SwipeItem)sender;
         Transacao transacao = (Transacao)grid.CommandParameter;

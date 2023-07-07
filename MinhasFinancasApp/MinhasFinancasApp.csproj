@@ -53,6 +53,7 @@
 	  <None Remove="Resources\AppIcon\carteiraincon.svg" />
 	  <None Remove="Resources\Images\fechar.svg" />
 	  <None Remove="Resources\Images\lixeira.svg" />
+	  <None Remove="Resources\Images\lixeirabranca.svg" />
 	  <None Remove="Resources\Raw\close.svg" />
 	  <None Remove="Resources\Splash\carteirasplash.svg" />
 	</ItemGroup>

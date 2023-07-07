@@ -26,6 +26,7 @@ public partial class TelaEdicao : ContentPage
             else
             RadioExpense.IsChecked = true;
 
+        lBLtitulo.Text = transacao.Name;
         EntryName.Text = transacao.Name;
         DatePickerDate.Date = transacao.Date.Date;
         EntryValue.Text = transacao.Value.ToString();
@@ -39,6 +40,15 @@ public partial class TelaEdicao : ContentPage
         }
 
         SalvarnoBanco();
+
+        Navigation.PopModalAsync();
+
+        WeakReferenceMessenger.Default.Send<string>(string.Empty);
+    }
+
+    private void OnClickExcluir(object sender, EventArgs e)
+    {
+        _transation.Delete(_transacao);
 
         Navigation.PopModalAsync();
 

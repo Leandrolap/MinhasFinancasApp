@@ -16,12 +16,12 @@ namespace MinhasFinancasApp.Libraries.Converters
 
             if (transacao == null)
             {
-                return Color.FromArgb("#00BFFFF");
+                return Colors.White;
             }
 
             if (transacao.Type == TransacaoType.Income)
             {
-                return Color.FromArgb("#00BFFFF");
+                return Colors.White;
             }
             else
             {
