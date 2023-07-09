@@ -26,10 +26,11 @@ public partial class TelaEdicao : ContentPage
             else
             RadioExpense.IsChecked = true;
 
-        lBLtitulo.Text = transacao.Name;
+        LblTitulo.Text = transacao.Name;
         EntryName.Text = transacao.Name;
         DatePickerDate.Date = transacao.Date.Date;
         EntryValue.Text = transacao.Value.ToString();
+        EditDetalhes.Text = transacao.Descricao;
     }
 
     private void OnClickedSalvar(object sender, EventArgs e)
@@ -63,7 +64,8 @@ public partial class TelaEdicao : ContentPage
             Type = RadioIncome.IsChecked ? TransacaoType.Income : TransacaoType.Expenses,
             Name = EntryName.Text,
             Date = DatePickerDate.Date,
-            Value = double.Parse(EntryValue.Text)
+            Value = double.Parse(EntryValue.Text),
+            Descricao = EditDetalhes.Text
         };
 
         _transation.Update(transacao);

@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFrameworks>net7.0-android;net7.0-ios;net7.0-maccatalyst</TargetFrameworks>
+		<TargetFrameworks>net7.0-ios;net7.0-maccatalyst;net7.0-android33.0</TargetFrameworks>
 		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net7.0-windows10.0.19041.0</TargetFrameworks>
 		<!-- Uncomment to also build the tizen app. You will need to install tizen by following this: https://github.com/Samsung/Tizen.NET -->
 		<!-- <TargetFrameworks>$(TargetFrameworks);net7.0-tizen</TargetFrameworks> -->
@@ -12,10 +12,10 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 
 		<!-- Display name -->
-		<ApplicationTitle>MinhasFinancasApp</ApplicationTitle>
+		<ApplicationTitle>Meu Gasto</ApplicationTitle>
 
 		<!-- App Identifier -->
-		<ApplicationId>com.companyname.minhasfinancasapp</ApplicationId>
+		<ApplicationId>com.br.meugasto</ApplicationId>
 		<ApplicationIdGuid>8384d8f3-726b-4a7f-8bb6-7d8d49146deb</ApplicationIdGuid>
 
 		<!-- Versions -->
@@ -30,10 +30,13 @@
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
 	</PropertyGroup>
 
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net7.0-android33.0|AnyCPU'">
+	  <AndroidPackageFormat>apk</AndroidPackageFormat>
+	</PropertyGroup>
+
 	<ItemGroup>
 		<!-- App Icon -->
-		<MauiIcon Include="Resources\AppIcon\carteiraincon.svg" ForegroundFile="Resources\AppIcon\carteiraincon.svg" Color="#FF721F1F" />
-	
+    <MauiIcon Include="Resources\AppIcon\carteira.svg" ForegroundFile="Resources\AppIcon\carteira.svg" Color="#FF721F1F" />
 
 		<!-- Splash Screen -->
 		<MauiSplashScreen Include="Resources\Splash\carteirasplash.svg" Color="#FF721F1F" BaseSize="128,128" />
@@ -50,7 +53,8 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <None Remove="Resources\AppIcon\carteiraincon.svg" />
+	  <None Remove="Resources\Fonts\BreeSerif-Regular.ttf" />
+	  <None Remove="Resources\Fonts\Montserrat.ttf" />
 	  <None Remove="Resources\Images\fechar.svg" />
 	  <None Remove="Resources\Images\lixeira.svg" />
 	  <None Remove="Resources\Images\lixeirabranca.svg" />
@@ -66,6 +70,9 @@
 
 	<ItemGroup>
 	  <MauiXaml Update="Views\CadastroAdd.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Sobre.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\TelaEdicao.xaml">

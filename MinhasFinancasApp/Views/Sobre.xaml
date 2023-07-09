@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MinhasFinancasApp.Views.Sobre"
+             Title="Sobre">
+    <Grid>
+        <Border Margin="15"
+                    Padding="15"
+                    BackgroundColor="Black"
+                    Stroke="Transparent"
+                    StrokeShape="RoundRectangle 30"
+                VerticalOptions="Start">
+
+            <Grid ColumnDefinitions="*,30" RowDefinitions="Auto">
+
+                <Label TextColor="White"
+                       Text="Sobre o Aplicativo"
+                       FontSize="18"
+                       FontFamily="BreeSerifRegular"
+                       HorizontalOptions="Center"/>
+
+                <Image Grid.Row="0"
+                           Grid.Column="1"
+                           HorizontalOptions="Center"
+                           Source="fechar.png"
+                           WidthRequest="17">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnTappedImage"/>
+                    </Image.GestureRecognizers>
+                </Image>
+            </Grid>
+        </Border>
+
+        <VerticalStackLayout VerticalOptions="Center"
+                             HorizontalOptions="Center"
+                             Margin="15">
+            <Label Text="Obrigado por usar o Meu Gasto."
+                   FontSize="20"
+                   FontFamily="Montserrat"
+                   TextColor="White"/>
+
+            <Label Text="Deixe seu feedback e sua avaliação na loja ou pelo email sua sugestão."
+                   FontSize="15"
+                   TextColor="White"
+                   FontFamily="BreeSerifRegular"/>
+        </VerticalStackLayout>
+
+        <VerticalStackLayout VerticalOptions="End" 
+                             HorizontalOptions="Center"
+                             Margin="0,0,0,30">
+            
+            <Label Text="suporte_desenvolvimento@outlook.com"
+                   TextColor="White"
+                   FontSize="12"
+                   FontFamily="Montserrat"/>
+
+            <Label Text="Versão: 1.0"
+                   TextColor="White"
+                   FontSize="12"
+                   FontFamily="Montserrat"
+                   HorizontalOptions="Center"
+                   Margin="0,15,0,0"/>
+        </VerticalStackLayout>
+    </Grid>
+</ContentPage>

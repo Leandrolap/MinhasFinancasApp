@@ -62,4 +62,9 @@ public partial class TelaInicial : ContentPage
 
         Reload();
     }
+
+    private void OnClickSobre(object sender, EventArgs e)
+    {
+        Navigation.PushModalAsync(new Sobre());
+    }
 }

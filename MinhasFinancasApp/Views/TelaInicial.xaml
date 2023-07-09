@@ -45,24 +45,28 @@
                                        FontSize="20"
                                        FontAttributes="Bold"
                                        TextColor="White"
-                                       Padding="5"/>
+                                       Padding="5"
+                                       FontFamily="BreeSerifRegular"/>
                             </Border>
 
                             <VerticalStackLayout Grid.Column="1" Spacing="5" Margin="10,0">
                                 <Label Text="{Binding Name}" 
                                            TextColor="Black"
                                            FontAttributes="Bold"
-                                           FontSize="18"/>
+                                           FontSize="18"
+                                       FontFamily="BreeSerifRegular"/>
 
                                 <Label Text="{Binding ., Converter={StaticResource TransationValueConverter}}" 
                                            TextColor="{Binding ., Converter={StaticResource TransationValueColor}}"
-                                           FontSize="20"/>
+                                           FontSize="20"
+                                       FontFamily="Montserrat"/>
                             </VerticalStackLayout>
 
                             <Label Grid.Column="2"
                                        VerticalOptions="End"
                                        Text="{Binding Date, StringFormat='{0:dd/MM/yyyy}'}"
-                                       TextColor="White"/>
+                                       TextColor="White"
+                                    FontFamily="Montserrat"/>
                         </Grid>
                     </SwipeView>
                 </DataTemplate>
@@ -77,15 +81,17 @@
                 AbsoluteLayout.LayoutBounds="0.5,1,100,25"
             Grid.Row="1">
 
-        <Grid ColumnDefinitions="*,80" RowDefinitions="Auto, Auto, 30, Auto, Auto" Padding="10">
+        <Grid ColumnDefinitions="*,80" RowDefinitions="Auto, Auto, 30, Auto" Padding="10">
             <Label Text="Saldo"
                        TextColor="White"
-                       FontSize="18"/>
+                       FontSize="18"
+                   FontFamily="BreeSerifRegular"/>
 
             <Label Grid.Row="1"
                        TextColor="White"
                        FontSize="27"
-                       x:Name="LblSaldo"/>
+                       x:Name="LblSaldo"
+                    FontFamily="Montserrat"/>
 
             <Button Text="+"
                         Clicked="OnclickAdd"
@@ -97,31 +103,55 @@
                         WidthRequest="70"
                         VerticalOptions="CenterAndExpand"
                         TextColor="Black"
-                        BackgroundColor="White"/>
+                        BackgroundColor="White"
+                    HorizontalOptions="EndAndExpand"/>
 
-            <Label Text="Receitas"
-                       Grid.Row="3"
+                <HorizontalStackLayout Grid.Row="3" Spacing="50">
+                    <VerticalStackLayout Spacing="5">
+                        <Label Text="Receitas"
                        TextColor="White"
-                       FontSize="15"/>
+                       FontSize="15"
+                   FontFamily="BreeSerifRegular"/>
 
-            <Label Grid.Row="4"
-                       TextColor="White"
-                       FontSize="12"
-                       x:Name="LblReceitas"/>
-
-            <Label Text="Despesas" 
-                       Grid.Row="3"
-                       Grid.Column="1"
-                       TextColor="White"
-                       FontSize="15"/>
-
-            <Label Grid.Row="4"
-                       Grid.Column="1"
+                        <Label
                        TextColor="White"
                        FontSize="12"
-                       x:Name="LblDespesas"/>
-        </Grid>
-    </Border>
+                       x:Name="LblReceitas"
+                    FontFamily="Montserrat"/>
+                    </VerticalStackLayout>
+
+                    <VerticalStackLayout Spacing="5"> 
+                        <Label Text="Despesas" 
+                       TextColor="White"
+                       FontSize="15"
+                   FontFamily="BreeSerifRegular"/>
+
+                        <Label
+                       TextColor="White"
+                       FontSize="12"
+                       x:Name="LblDespesas"
+                    FontFamily="Montserrat"/>
+                    </VerticalStackLayout>
+                </HorizontalStackLayout>
+
+                <Button Text="i"
+                        Grid.Column="1"
+                        Grid.RowSpan="4"
+                        FontSize="20"
+                        Padding="0"
+                        CornerRadius="50"
+                        WidthRequest="28"
+                        HeightRequest="28"
+                        VerticalOptions="End"
+                        HorizontalOptions="End"
+                        TextColor="Black"
+                        BackgroundColor="White"
+                        Clicked="OnClickSobre"/>
+            </Grid>
+
+          
+
+        </Border>
     
     </Grid>
     

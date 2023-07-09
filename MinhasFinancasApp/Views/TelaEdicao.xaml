@@ -13,13 +13,13 @@
                     StrokeShape="RoundRectangle 30">
 
                 <Grid ColumnDefinitions="*,30" RowDefinitions="Auto">
-                    <Label Grid.Row="0"
-                           Grid.Column="0"
-                           HorizontalOptions="Center"
-                           x:Name="lBLtitulo"
-                           TextColor="White"
-                           VerticalOptions="Center"/>
 
+                    <Label x:Name="LblTitulo"
+                           TextColor="White"
+                           FontSize="18"
+                           FontFamily="BreeSerifRegular"
+                           HorizontalOptions="Center"/>
+                    
                     <Image Grid.Row="0"
                            Grid.Column="1"
                            HorizontalOptions="Center"
@@ -36,13 +36,15 @@
                 <RadioButton x:Name="RadioIncome" 
                              Content="Receita" 
                              IsChecked="True"
-                             TextColor="White"/>
+                             TextColor="White"
+                             FontFamily="BreeSerifRegular"/>
 
                 <RadioButton x:Name="RadioExpense" 
                              Grid.Column="1" 
                              Content="Despeza" 
                              HorizontalOptions="End"
-                             TextColor="White"/>
+                             TextColor="White"
+                             FontFamily="BreeSerifRegular"/>
             </Grid>
 
             <Frame CornerRadius="8"
@@ -56,33 +58,39 @@
                        VerticalOptions="Center"/>
             </Frame>
 
-            <Frame CornerRadius="8"
+            <HorizontalStackLayout Spacing="50">
+                <Frame CornerRadius="8"
                    BackgroundColor="White"
                    BorderColor="Transparent"
                    Padding="1"
-                   Margin="15,20">
+                   Margin="15,20"
+                HorizontalOptions="Center"
+                WidthRequest="100">
 
-                <Entry x:Name="EntryValue"
+                    <Entry x:Name="EntryValue"
                        TextColor="Black"
                        VerticalOptions="Center"
-                       Keyboard="Numeric"/>
-            </Frame>
+                       Keyboard="Numeric"
+                          />
+                </Frame>
 
-            <Frame HorizontalOptions="Center">
-                <StackLayout>
-                    <Label Text="Selecione a data"
-                           HorizontalOptions="Center"
-                           TextColor="Black"
-                           FontSize="12"/>
-
-                    <DatePicker Margin="15,0"
+                <Frame>
+                    <DatePicker 
                                 x:Name="DatePickerDate"
                                 TextColor="Black"
                                 HorizontalOptions="Center"
                                 FontSize="17"
                                 Format="dd/MM/yyyy"/>
-                </StackLayout>
-            </Frame>
+                </Frame>
+            </HorizontalStackLayout>
+
+            <Editor x:Name="EditDetalhes"
+                    TextColor="Black"
+                    BackgroundColor="White"
+                    FontSize="18"
+                    Margin="15,20,15,0"
+                    HeightRequest="150"
+                    Placeholder="Descrição"/>
 
             <Label TextColor="Red" 
                    x:Name="LabelErro"
@@ -104,6 +112,7 @@
                 BackgroundColor="Black"
                 TextColor="White"
                 Clicked="OnClickedSalvar"
-                VerticalOptions="End"/>
+                VerticalOptions="End"
+                FontFamily="BreeSerifRegular"/>
     </Grid>
 </ContentPage>

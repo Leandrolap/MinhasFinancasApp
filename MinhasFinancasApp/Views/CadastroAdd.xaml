@@ -18,7 +18,8 @@
                            HorizontalOptions="CenterAndExpand"
                            Text="NOVA TRANSAÇÃO"
                            TextColor="White"
-                           VerticalOptions="Center"/>
+                           VerticalOptions="Center"
+                           FontFamily="BreeSerifRegular"/>
 
                     <Image Grid.Row="0"
                            Grid.Column="1"
@@ -36,13 +37,15 @@
                 <RadioButton IsChecked="True" 
                              Content="Receita"
                              x:Name="RadioIncome"
-                             TextColor="White"/>
+                             TextColor="White"
+                             FontFamily="BreeSerifRegular"/>
                 
                 <RadioButton Content="Despesa"
                              Grid.Column="1"
                              HorizontalOptions="End"
                              x:Name="RadioExpense"
-                             TextColor="White"/>
+                             TextColor="White"
+                             FontFamily="BreeSerifRegular"/>
             </Grid>
 
             <Frame CornerRadius="8"
@@ -97,6 +100,7 @@
                 BackgroundColor="Black"
                 Clicked="OnClickedSalvar"
                 VerticalOptions="End"
-                TextColor="White"/>
+                TextColor="White"
+                FontFamily="BreeSerifRegular"/>
     </Grid>
 </ContentPage>

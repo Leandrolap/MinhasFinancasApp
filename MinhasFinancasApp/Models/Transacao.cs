@@ -15,6 +15,7 @@ namespace MinhasFinancasApp.Models
         public string Name { get; set; }
         public DateTimeOffset Date { get; set; }
         public double Value { get; set; }
+        public string Descricao { get; set; }
     }
 
     public enum TransacaoType
